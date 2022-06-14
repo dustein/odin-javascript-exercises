@@ -1,12 +1,12 @@
 const reverseString = function(palavras) {
    
-   palavras.join(" ")
-   console.log(palavras)
-
-   return null;
-
+   console.log(palavras.split("").reverse().join(""))
+   return palavras
+            .split("")
+            .reverse()
+            .join("")
 };
 
-reverseString("teste")
+reverseString("hello")
 // Do not edit below this line
 module.exports = reverseString;
