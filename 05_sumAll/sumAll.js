@@ -3,7 +3,11 @@ const sumAll = function(n1, n2) {
    let soma = 0;
    let a = n1;
    let b = n2;
-
+   console.log(typeof(a) + typeof(b))
+   if(typeof(a) != "number" || typeof(b) != "number") {
+      console.log('ERRO nao e int')
+      return 'ERROR'
+   }
    if (a < 0 || b < 0) {
       console.log("ERROR")
       return 'ERROR'
@@ -22,6 +26,6 @@ const sumAll = function(n1, n2) {
    return soma;
 };
 
-sumAll(-10, 4)
+sumAll(10, "9")
 // Do not edit below this line
 module.exports = sumAll;
