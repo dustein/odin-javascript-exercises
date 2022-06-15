@@ -39,6 +39,6 @@ const removeFromArray = function(array, ...toremove) {
    return array
 };
 
-removeFromArray([1,2,3,4], 7, 2)
+removeFromArray([1,2,3,4], 1, 2, 3, 4)
 // Do not edit below this line
 module.exports = removeFromArray;
