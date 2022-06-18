@@ -15,8 +15,16 @@ const sum = function(arr) {
   return acumulador;
 };
 
-const multiply = function() {
+const multiply = function(arr) {
+	let acumulador = 1;
 
+  for(i=0; i<arr.length; i++) {
+    console.log(arr)
+    console.log(arr.length)
+    console.log(arr[i])
+    acumulador *= arr[i]
+  }
+  return acumulador;
 };
 
 const power = function() {
@@ -29,7 +37,8 @@ const factorial = function() {
 
 // console.log(add(0, 0))
 // console.log(subtract(10, 4))
-console.log(sum([]))
+// console.log(sum([]))
+console.log(multiply([2,4]))
 // Do not edit below this line
 module.exports = {
   add,
