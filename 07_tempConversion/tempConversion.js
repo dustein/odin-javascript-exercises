@@ -4,11 +4,11 @@ const ftoc = function(temp) {
 };
 
 const ctof = function(temp) {
-  let fahrenheit = Math.floor((temp * 9/5) + 32)
+  let fahrenheit = (Math.floor((temp * 9/5) + 32) * 100) /100;
   return fahrenheit;
 };
-console.log(ftoc(32))
-console.log(ctof(26))
+console.log(ftoc(73.2))
+console.log(ctof(73.2))
 // Do not edit below this line
 module.exports = {
   ftoc,
