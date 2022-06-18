@@ -1,10 +1,10 @@
 const ftoc = function(temp) {
-  let celsius = Math.floor(((temp - 32) * 5)/9)
+  let celsius = Number((((temp - 32) * 5)/9).toFixed(1));
   return celsius;
 };
 
 const ctof = function(temp) {
-  let fahrenheit = (Math.floor((temp * 9/5) + 32) * 100) /100;
+  let fahrenheit = Number(((temp * 9/5) + 32).toFixed(1));
   return fahrenheit;
 };
 console.log(ftoc(73.2))
