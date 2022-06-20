@@ -2,10 +2,9 @@ const palindromes = function (info) {
   let reverseArray = []
   let regEx = /[aA-zZ]/g
   let preRegex = info.toLowerCase();
-  console.log(preRegex)
   let posRegex = preRegex.match(regEx).join("")
   console.log(posRegex)
-  let prepArray = posRegex.split().reverse();
+  let prepArray = posRegex.split("").reverse();
   console.log(prepArray)
 
   for(i=0; i<prepArray.length; i++) {
@@ -21,6 +20,6 @@ const palindromes = function (info) {
   return false;
 };
 
-console.log(palindromes("RAceCAR ! !"))
+console.log(palindromes("ZZZZ car, a man, a maracaz."))
 // Do not edit below this line
 module.exports = palindromes;
