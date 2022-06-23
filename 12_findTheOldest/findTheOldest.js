@@ -11,11 +11,20 @@ const findTheOldest = function(people) {
   //   }
   // }
   // return oldest
+  let oldest = 0
+  let personAge = 0
   for(let i=0; i<people.length; i++){
     console.log(people[i])
-    console.log(people[i].yearOfDeath - people[i].yearOfBirth)
+    personAge = people[i].yearOfDeath - people[i].yearOfBirth
+    if(personAge > oldest) {
+      console.log(oldest)
+      oldest = personAge
+      console.log(oldest)
+
+    }
+    console.log("fim do for")
   }
-  return "FIM"
+  return oldest
 };
 
 const people = [
