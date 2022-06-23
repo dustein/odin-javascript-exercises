@@ -1,30 +1,27 @@
 const findTheOldest = function(people) {
-  // let oldest = people[0].name;
-  // let oldYear = people[0].yearOfBirth;
-  // for (let i=0; i<people.length; i++) {
-  //   console.log(people[i].yearOfBirth)
-  //   if( people[i].yearOfBirth < oldYear) {
-  //     oldYear = people[i].yearOfBirth
-  //     console.log(oldYear = people[i].yearOfBirth)
-  //     oldest = people[i].name
-  //     console.log(oldest = people[i].name)
-  //   }
-  // }
-  // return oldest
+
   let oldest = 0
   let personAge = 0
+  let oldestPerson = ""
   for(let i=0; i<people.length; i++){
+    console.log("rodada " + i)
     console.log(people[i])
     personAge = people[i].yearOfDeath - people[i].yearOfBirth
-    if(personAge > oldest) {
-      console.log(oldest)
+    console.log("idade: "  + personAge)
+    if (oldest === 0) {
       oldest = personAge
+      oldestPerson = people[i]
       console.log(oldest)
-
+    } else if (personAge > oldest) {
+      oldest = personAge
+      oldestPerson = people[i]
+      console.log("novo velho: " + oldest)
     }
+
+
     console.log("fim do for")
   }
-  return oldest
+  return oldestPerson
 };
 
 const people = [
