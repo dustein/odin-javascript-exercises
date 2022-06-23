@@ -1,24 +1,21 @@
 const findTheOldest = function(people) {
-  let oldest = "";
-  let oldYear = 0;
-  for (let i=0; i<people.length; i++) {
-    // console.log(people[i].yearOfBirth)
-    if( i === 0) {
-      oldYear = people[i].yearOfBirth
-      console.log(oldYear = people[i].yearOfBirth)
-      oldest = people[i].name
-      console.log(oldest = people[i].name)
-
-    } 
-    
-    if( people[i].yearOfBirth < oldYear) {
-      oldYear = people[i].yearOfBirth
-      console.log(oldYear = people[i].yearOfBirth)
-      oldest = people[i].name
-      console.log(oldest = people[i].name)
-    }
-    return oldest
-}
+  // let oldest = people[0].name;
+  // let oldYear = people[0].yearOfBirth;
+  // for (let i=0; i<people.length; i++) {
+  //   console.log(people[i].yearOfBirth)
+  //   if( people[i].yearOfBirth < oldYear) {
+  //     oldYear = people[i].yearOfBirth
+  //     console.log(oldYear = people[i].yearOfBirth)
+  //     oldest = people[i].name
+  //     console.log(oldest = people[i].name)
+  //   }
+  // }
+  // return oldest
+  for(let i=0; i<people.length; i++){
+    console.log(people[i])
+    console.log(people[i].yearOfDeath - people[i].yearOfBirth)
+  }
+  return "FIM"
 };
 
 const people = [
@@ -40,6 +37,6 @@ const people = [
 ]
 
 
-console.log(findTheOldest(people))
+console.log(findTheOldest(people).name)
 // Do not edit below this line
 module.exports = findTheOldest;
