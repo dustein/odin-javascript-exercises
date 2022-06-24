@@ -2,12 +2,10 @@ const caesar = function(original, change) {
    let changedLetters = []
 
    for(let i = 0 ; i < original.length; i++) {
-      changedLetters.push(original.charCodeAt(i))
+      changedLetters.push(String.fromCharCode(original.charCodeAt(i)+change))
       console.log(changedLetters)
    }
-   
-   // let originalCaractere = original.charCodeAt(0);
-   // return String.fromCharCode(originalCaractere + change)
+   return changedLetters.join("");
 };
 
 console.log(caesar("Aaa", 1))
