@@ -8,9 +8,10 @@ const caesar = function(original, change) {
          // console.log(original[i])
          
          if(original.charCodeAt(i) > 64 && original.charCodeAt(i) < 91) {
+            console.log("caractere original" + original.charCodeAt(i))
             if(original.charCodeAt(i) + change > 90 ) {
                codigo = 64 + (change - (90 - original.charCodeAt(i)))
-               console.log(codigo)
+               console.log("caractere alterado" + codigo)
                changedLetters.push(String.fromCharCode(original.charCodeAt(codigo)))      
          }
 
