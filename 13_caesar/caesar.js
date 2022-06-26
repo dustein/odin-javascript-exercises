@@ -1,38 +1,45 @@
 const caesar = function(original, change) {
    let changedLetters = []
    let regEx = /[aA-zZ]/g
-   let codigo = 0;
+   let originalCode = 0
+   let changeWrap = 0;
    for(let i = 0 ; i < original.length; i++) {
+      originalCode = original.charCodeAt(i)
       console.log(`rodada ${i}`)
-      if(original[i].match(regEx)) {
-         console.log(`Letra original ${original[i]}`)
-         //para caracteres de A-Z (65 a 90)
-         if(original.charCodeAt(i) > 64 && original.charCodeAt(i) < 91) {
-            console.log("caractere original Maiusculo" + original.charCodeAt(i))
-            //se a modificacao do caractere ultrapassar o ultimo 90...
-            if(original.charCodeAt(i) + change > 90 ) {
-               codigo = 64 + (change - (90 - original.charCodeAt(i)))
-               console.log("caractere Maiusculo alterado" + codigo)
-               changedLetters.push(String.fromCharCode(codigo))      
-            }
-         }
-         //para caracteres de a-z (97-122)
-         if(original.charCodeAt(i) > 96 && original.charCodeAt(i) < 123) {
-            console.log("caractere original minusculo" + original.charCodeAt(i))
-            if(original.charCodeAt(i) + change > 90 ) {
-               codigo = 96 + (change - (122 - original.charCodeAt(i)))
-               console.log("caractere minusculo alterado" + codigo)
-               changedLetters.push(String.fromCharCode(codigo))      
-            }
-         }
-         // console.log("ok")
-         // changedLetters.push(String.fromCharCode(original.charCodeAt(i)+change));
+      console.log(`originalCode = ${String.fromCharCode(originalCode)}`)
 
+      if(original[i].match(regEx)) {
+
+         if(originalCode > 65 && originalCode < 90) {
+            if(originalCode + change > 90) {
+               console.log("aqui tenm que ter wrap")
+               changeWrap = 64 + (change - (90 - originalCode))
+               console.log(`Novo sera ${String.fromCharCode(changeWrap)}`)
+               changedLetters.push(String.fromCharCode(changeWrap))
+            }
+            changedLetters.push(String.fromCharCode(originalCode + change))
+            console.log(`Virou ${String.fromCharCode(originalCode + change)}`)
+         }
+
+         if(originalCode > 97 && originalCode < 122) {
+            if(originalCode + change > 122) {
+               console.log("aqui tambem")
+               changeWrap = 96 + (change - (90 - originalCode))
+               console.log(`Novo sera ${String.fromCharCode(changeWrap)}`)
+               changedLetters.push(String.fromCharCode(changeWrap))
+            }
+            changedLetters.push(String.fromCharCode(originalCode + change))
+            console.log(`Virou ${String.fromCharCode(originalCode + change)}`)
+         }
+
+         changedLetters.push(String.fromCharCode(originalCode + change))
+         console.log(`Virou ${String.fromCharCode(originalCode + change)}`)
+      //se o caractere não for aA-zZ...
       } else if (!original[i].match(regEx)) {
-         changedLetters.push(String.fromCharCode(original.charCodeAt(i)))
+         changedLetters.push(String.fromCharCode(originalCode))
       }
-      console.log(changedLetters)
    }
+
    return changedLetters.join("");
 };
 
