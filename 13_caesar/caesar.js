@@ -1,20 +1,26 @@
 const caesar = function(original, change) {
-   const maiusculas = ["A", "B", "C", "D", "E", "F", "G", "H", "I", "J", "K", "L", "M", "N", "O", "P", "Q", "R", "S", "T", "U", "V", "W", "X", "Y", "Z"];
-   const minusculas = ["a", "b", "c", "d", "e", "f", "g", "h", "i", "j", "k", "l", "m", "n", "o", "p", "q", "r", "s", "t", "u", "v", "w", "x", "y", "z"];
-   
+
    let changedLetters = []
+   let regex = /[aA-zZ]/g;
+
 
    for(i=0; i<original.length; i++) {
-      console.log(original[i])
-      //verificar se e maiuscula ou minuscula
-      if(original[i] === original[i].toUpperCase()) {
-         console.log("MAIUSCULA")
-         changedLetters.push(maiusculas[i+1])
-      } else {
-         console.log("minuscula")
-         changedLetters.push(original[i])
+      let ascii = original[i].charCodeAt();
+      console.log(`Letra da vez: ${original[i]} codigo ${ascii}`)
+      //verificar se e letra
+      if(!original[i].match(regex)) {
+         console.log(original[i])
       }
 
+      if(ascii >= 65 && ascii <= 90) {
+         console.log("MAIUSCULA")
+
+      }
+
+      if(ascii >= 97 && ascii <= 122) {
+         console.log("minuscula")
+         
+      }
 
 
    }
@@ -23,6 +29,8 @@ const caesar = function(original, change) {
    return changedLetters.join("");
 };
 
-console.log(caesar("AbAbAb", 1))
+console.log(caesar("Hello, World!", 1))
+   // const maiusculas = ["A", "B", "C", "D", "E", "F", "G", "H", "I", "J", "K", "L", "M", "N", "O", "P", "Q", "R", "S", "T", "U", "V", "W", "X", "Y", "Z"];
+   // const minusculas = ["a", "b", "c", "d", "e", "f", "g", "h", "i", "j", "k", "l", "m", "n", "o", "p", "q", "r", "s", "t", "u", "v", "w", "x", "y", "z"];
 // Do not edit below this line
 module.exports = caesar;
