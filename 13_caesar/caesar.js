@@ -3,29 +3,24 @@ const caesar = function(original, change) {
    let changedLetters = "";
    let regex = /[aA-zZ]/g;
 
-
    for(i=0; i<original.length; i++) {
       let ascii = original[i].charCodeAt();
-      console.log(`Letra da vez: ${original[i]} codigo ${ascii}`)
+      // console.log(`Letra da vez: ${original[i]} codigo ${ascii}`)
       //verificar se e letra
       // if(!original[i].match(regex)) {
       //    console.log(original[i])
       // }
 
       if(ascii >= 65 && ascii <= 90) {
-         console.log("MAIUSCULA")
+         // console.log("MAIUSCULA")
          changedLetters += String.fromCharCode( (ascii - "A".charCodeAt(0) + change) % 26 + "A".charCodeAt(0));
       } else if(ascii >= 97 && ascii <= 122) {
-         console.log("minuscula")
+         // console.log("minuscula")
          changedLetters += String.fromCharCode( (ascii - "a".charCodeAt(0) + change) % 26 + "a".charCodeAt(0));
       } else {
          changedLetters += original[i]
       }
-
-
    }
-
-
    // return changedLetters.join("");
    return changedLetters;
 };
