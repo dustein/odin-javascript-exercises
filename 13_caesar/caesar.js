@@ -1,53 +1,28 @@
 const caesar = function(original, change) {
+   const maiusculas = ["A", "B", "C", "D", "E", "F", "G", "H", "I", "J", "K", "L", "M", "N", "O", "P", "Q", "R", "S", "T", "U", "V", "W", "X", "Y", "Z"];
+   const minusculas = ["a", "b", "c", "d", "e", "f", "g", "h", "i", "j", "k", "l", "m", "n", "o", "p", "q", "r", "s", "t", "u", "v", "w", "x", "y", "z"];
+   
    let changedLetters = []
-   let regEx = /[aA-zZ]/g
-   let originalCode = 0
-   let changeWrap = 0;
-   for(let i = 0 ; i < original.length; i++) {
-      originalCode = original.charCodeAt(i)
-      // console.log(`rodada ${i}`)
-      // console.log(`originalCode = ${String.fromCharCode(originalCode)}`)
 
-      if(original[i].match(regEx)) {
-
-         if(originalCode >= 65 && originalCode <= 90) {
-            if(originalCode + change > 90) {
-               // console.log("aqui tenm que ter wrap")
-               changeWrap = 64 + (change - (90 - originalCode))
-               // console.log(`Novo sera ${String.fromCharCode(changeWrap)}`)
-               changedLetters.push(String.fromCharCode(changeWrap))
-            } else if (originalCode + change < 65) {
-               changedLetters.push(String.fromCharCode(originalCode + change))
-               // console.log(`Virou ${String.fromCharCode(originalCode + change)}`)
-            } else if (originalCode + change <= 90) {
-               changedLetters.push(String.fromCharCode(originalCode + change))
-               // console.log(`Virou ${String.fromCharCode(originalCode + change)}`)
-         }
-
-         if(originalCode >= 97 && originalCode <= 122) {
-            if(originalCode + change > 122) {
-               // console.log("aqui tambem")
-               changeWrap = 96 + (change - (122 - originalCode))
-               // console.log(`Novo sera ${String.fromCharCode(changeWrap)}`)
-               changedLetters.push(String.fromCharCode(changeWrap))
-            } else if (originalCode + change < 97) {
-               changedLetters.push(String.fromCharCode(originalCode + change))
-               // console.log(`Virou ${String.fromCharCode(originalCode + change)}`)
-            } else if (originalCode + change <= 122) {
-               changedLetters.push(String.fromCharCode(originalCode + change))
-               // console.log(`Virou ${String.fromCharCode(originalCode + change)}`)
-
-         }
-
-      //se o caractere não for aA-zZ...
-      } else if (!original[i].match(regEx)) {
-         changedLetters.push(String.fromCharCode(originalCode))
+   for(i=0; i<original.length; i++) {
+      console.log(original[i])
+      //verificar se e maiuscula ou minuscula
+      if(original[i] === original[i].toUpperCase()) {
+         console.log("MAIUSCULA")
+         changedLetters.push(maiusculas[i+1])
+      } else {
+         console.log("minuscula")
+         changedLetters.push(original[i])
       }
+
+
+
    }
+
 
    return changedLetters.join("");
 };
 
-console.log(caesar("A", -1))
+console.log(caesar("AbAbAb", 1))
 // Do not edit below this line
 module.exports = caesar;
